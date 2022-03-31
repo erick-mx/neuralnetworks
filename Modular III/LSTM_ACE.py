@@ -1,4 +1,4 @@
-
+######## TIME SERIES FORECASTING WITH LSTM NEURAL NETWORK ########
 
 # Importing required libraries
 import math
@@ -46,12 +46,11 @@ testX = np.reshape(testX, (testX.shape[0], 1, testX.shape[1]))
 ################# BUILD AND TRAIN LSTM NEURAL NETWORK #################
 # create and fit the LSTM network
 model = Sequential()
-#model.add(LSTM(4, input_shape=(1, look_back))) # Original
-model.add(LSTM(16, input_shape=(1, look_back))) # Learning and predicting chaos (2022.03.09)
+model.add(LSTM(16, input_shape=(1, look_back))) # Learning and predicting chaos
 model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer='adam', metrics=['mean_squared_error'])
 # Fit
-history = model.fit(trainX, trainY, epochs=100, batch_size=1, verbose=0) # Original
+history = model.fit(trainX, trainY, epochs=100, batch_size=1, verbose=0)
 # make predictions
 trainPredict = model.predict(trainX)
 testPredict = model.predict(testX)
