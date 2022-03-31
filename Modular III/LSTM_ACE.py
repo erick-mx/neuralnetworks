@@ -19,7 +19,7 @@ def create_dataset(dataset, look_back=1):
 np.random.seed(7)   # fix random seed for reproducibility
 # loading data
 !git clone https://github.com/erick-mx/neuralnetworks.git
-gh_ace = pd.read_csv('/content/neuralnetworks/timeseries/TS_ACE_NWP.csv', nrows=72, usecols=[1], engine='python')
+gh_ace = pd.read_csv('/content/neuralnetworks/timeseries/TS_ACE_NWP.csv', nrows=72, usecols=[1])
 dataframe = gh_ace
 
 dataset = dataframe.values
