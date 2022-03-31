@@ -1,5 +1,4 @@
 ######## TIME SERIES FORECASTING WITH LSTM NEURAL NETWORK ########
-
 # Importing required libraries
 import math
 from keras.models import Sequential
@@ -17,10 +16,7 @@ def create_dataset(dataset, look_back=1):
         dataX.append(a)
         dataY.append(dataset[i + look_back, 0])
     return np.array(dataX), np.array(dataY)
-
-# fix random seed for reproducibility
-np.random.seed(7)
-
+np.random.seed(7)   # fix random seed for reproducibility
 # loading data
 !git clone https://github.com/erick-mx/neuralnetworks.git
 gh_ace = pd.read_csv('/content/neuralnetworks/timeseries/TS_ACE_NWP.csv', nrows=72, usecols=[1], engine='python')
@@ -54,7 +50,6 @@ history = model.fit(trainX, trainY, epochs=100, batch_size=1, verbose=0)
 # make predictions
 trainPredict = model.predict(trainX)
 testPredict = model.predict(testX)
-
 # invert predictions
 trainPredict = scaler.inverse_transform(trainPredict)
 trainY = scaler.inverse_transform([trainY])
